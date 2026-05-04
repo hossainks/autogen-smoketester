@@ -31,7 +31,7 @@ def ensure_docker_image(image: str) -> None:
 async def main():
     print("Hello world")
     ensure_docker_image(JIRA_MCP_IMAGE)
-    llm_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
+    llm_client = OpenAIChatCompletionClient(model="gpt-5-mini")
 
     jira_params = StdioServerParams(
         command="docker",
@@ -151,10 +151,6 @@ async def main():
                 Once ready, automate this flow using Playwright MCP and execute it."
                 """ )
                                       ))
-
     await llm_client.close()
-
-
-
 
 asyncio.run(main())
